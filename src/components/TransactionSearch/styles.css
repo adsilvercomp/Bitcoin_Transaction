@@ -1,0 +1,42 @@
+.transactionSearchContainer{
+    display:flex;
+    background-color: var(--beige);
+    height: 88px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .transactionSearchInnerContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    height: 64px;
+    justify-content: center;
+    padding-left:16px;
+    padding-right: 16px;
+    max-width: 722px;
+    width: 60%;
+  
+  }
+  
+  .transactionSearchLabel{
+    height: 19px;
+    color: var(--dark-beige);
+  }
+  
+  .transactionSearchInput{
+    border: none;
+    height: 19px;
+  }
+  
+  .transactionSearchInput:focus, input:focus{
+    outline: none;
+  }
+
+  .searchButton{
+    border:none;
+    height:64px;
+    background-color: var(--dark-beige);
+    color: white;
+    cursor: pointer;
+  }

@@ -5,7 +5,7 @@ const TransactionSearch  = () => {
         <section className="transactionSearchContainer">
             <div className="transactionSearchInnerContainer">
                 <label className="transactionSearchLabel" for="Transaction ID">Transaction ID</label>
-                <input className="transactionSearchInput" type="text" class="transactionInput"></input>
+                <input className="transactionSearchInput" type="text" ></input>
             </div>
             <button className="searchButton">Search</button>
         </section>

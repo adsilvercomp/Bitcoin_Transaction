@@ -1,15 +1,10 @@
 .transactionStatusIconContainer{
     border: solid 1px var(--dark-beige);
     display: flex;
-    flex-direction: column;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: var(--space-3);
     padding-bottom: 48px;
-}
-
-.transactionStatusIconInnerContainer{
-    display: flex;
     justify-content: space-around;
 }
 

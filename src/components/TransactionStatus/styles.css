@@ -1,0 +1,71 @@
+.transactionStatusContainer{
+    background-color: var(--beige);
+}
+
+.transactionStatusHeaderContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.transactionStatusHeader{
+    font-size: 32px;
+    font-weight: normal;
+    color: var(--black);
+    margin: 0px;
+}
+
+.transactionStatusBox{
+    width: 69px;
+    height: 21px;
+    font-size: 11px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: var(--space-1);
+}
+
+.transactionStatusConfirmedBox{
+    background-color: rgb(232, 255, 229);
+    color: rgb(3, 137, 3);
+    border: rgb(171, 245, 171) 1px solid;
+}
+
+.transactionStatusPendingBox{
+    background-color: rgb(69, 57, 57);
+    color: var(--white);
+    border: var(--black) 1px solid;
+}
+
+.transactionIdSection{
+    display: flex;
+}
+
+.transactionId{
+    color: var(--dark-beige);
+    font-size: 13px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75ch;
+}
+
+.copyTransactionId{
+    height:12px;
+    width: auto;
+    margin-left: 5px;
+}
+
+.transactionStatusDescription{
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-3);
+    font-size: 15px;
+    color: var(--dark-beige);
+}
+
+.textHighlight{
+    color: var(--black);
+    
+}

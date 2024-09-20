@@ -1,0 +1,58 @@
+.transactionStatusIconContainer{
+    border: solid 1px var(--dark-beige);
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: var(--space-3);
+    padding-bottom: 48px;
+}
+
+.transactionStatusIconInnerContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.transactionStatusIconTextContainer{
+    display: flex;
+}
+
+.iconLine{
+    transform: rotate(90deg);
+    padding:0px;
+    margin: 0px;
+}
+
+.iconOuterContainer{
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.iconContainer{
+    height:48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.iconStatusName{
+    margin: 0px;
+    font-size: 9px;
+    font-weight: normal;
+    color: var(--dark-beige);
+}
+
+.transactionIconStatus{
+    position:absolute;
+    color: var(--dark-beige);
+    text-align: center;
+    font-weight: normal;
+    margin: 0;
+    font-size: 9px;
+    width: 60px;
+    top: 55px;
+}

@@ -5,6 +5,10 @@
   --orange: #FC6432;
   --black: #000000;
   --white: #FFFFFFFF;
+  --space-1: 12px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
   padding:0;
   margin: 0;
   font-family: sans-serif;
@@ -13,5 +17,29 @@
 .appContainer{
   display: flex;
   flex-direction: column;
+  min-width: 425px;
 }
 
+.transactionOuterContainer{
+  display:flex;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.transactionContainer{
+  width:356px;
+  min-width: 356px;
+  height:520px;
+  min-height: 520px;
+  padding: var(--space-3);
+  border: solid 1px var(--beige);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 820px){
+  .transactionOuterContainer{
+    flex-direction: column;
+    align-items: center;
+  }
+}

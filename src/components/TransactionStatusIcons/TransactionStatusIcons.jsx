@@ -5,7 +5,7 @@ import confirmedIcon from '../../icons/confirmed.png';
 import inBlockIcon from '../../icons/inBlock.png';
 const TransactionStatusIcons = () => {
     return(
-        <section className={'transactionStatusIconContainer'}>
+        <section className={'transactionStatusInnerContainer transactionStatusIconContainer'}>
                 <div className={'iconContainer pastStatus'}>
                     <img src={pendingIcon}/>
                     <h5 className='transactionIconStatus'>Pending 2h 23m</h5>

@@ -5,6 +5,7 @@
   --orange: #FC6432;
   --black: #000000;
   --white: #FFFFFFFF;
+  --light-gray: rgb(208, 203, 203);
   --space-1: 12px;
   --space-2: 16px;
   --space-3: 24px;
@@ -34,9 +35,20 @@
   height:520px;
   min-height: 520px;
   padding: var(--space-3);
-  border: solid 1px var(--beige);
+  border: solid 1px var(--light-gray);
   display: flex;
   flex-direction: column;
+ 
+}
+
+.transactionStatusInnerContainer{
+  border: solid 1px var(--light-gray);
+  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-5);  
+  border-radius: var(--radius-1);
 }
 
 @media (max-width: 820px){

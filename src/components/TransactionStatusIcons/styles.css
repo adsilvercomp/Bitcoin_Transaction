@@ -1,12 +1,5 @@
 .transactionStatusIconContainer{
-    border: solid 1px var(--dark-beige);
-    display: flex;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: var(--space-3);
-    padding-bottom: var(--space-5);
     justify-content: space-around;
-    border-radius: var(--radius-1);
 }
 
 .transactionStatusIconTextContainer{
@@ -71,6 +64,7 @@
     border-image: linear-gradient(var(--orange), var(--dark-beige)) 1;
     animation: gradientAnimation 1s ease-in-out; /* Adjust duration and easing as needed */
 }
+
 
 /* animate horizontal rule */
 @keyframes gradientAnimation {

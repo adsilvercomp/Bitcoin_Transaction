@@ -68,5 +68,40 @@
 
 .textHighlight{
     color: var(--black);
-    
+}
+
+.transactionStatusInfoContainer{
+    margin-top: var(--space-3);
+    flex-direction: column;
+    padding: 0;
+}
+
+.transactionStatusInfo{
+    display: flex;
+    flex-direction:row;
+    margin: var(--space-1);
+}
+
+.statusInfoSection{
+    display: flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.statusInfoHeader{
+    font-weight:normal;
+    padding-bottom: 6px;
+}
+
+.statusInfoText{
+    font-size: 13px;
+    color: var(--dark-beige);
+    margin: 0;
+}
+
+.divider{
+    width: 100%;
+    border:none;
+    height: 1px;
+    background-color: var(--light-gray);
 }

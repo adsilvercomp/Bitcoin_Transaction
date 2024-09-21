@@ -42,7 +42,6 @@
   height:520px;
   min-height: 520px;
   padding: var(--space-3);
-  /* border: solid 1px var(--light-gray); */
   display: flex;
   flex-direction: column;
  

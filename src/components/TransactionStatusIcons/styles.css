@@ -4,8 +4,9 @@
     padding-left: 40px;
     padding-right: 40px;
     padding-top: var(--space-3);
-    padding-bottom: 48px;
+    padding-bottom: var(--space-5);
     justify-content: space-around;
+    border-radius: var(--radius-1);
 }
 
 .transactionStatusIconTextContainer{
@@ -50,4 +51,43 @@
     font-size: 9px;
     width: 60px;
     top: 55px;
+}
+
+.currentStatus{
+    border: var(--orange) solid 1px;
+    animation: borderAnimation 2s ease-in-out; 
+}
+
+.pastStatus{
+    border: var(--dark-beige) 1px solid;
+}
+
+.futureStatus{
+    opacity: 50%;
+    border: var(--dark-beige) 1px solid;
+}
+
+.lineBeforeCurrent {
+    border-image: linear-gradient(var(--orange), var(--dark-beige)) 1;
+    animation: gradientAnimation 1s ease-in-out; /* Adjust duration and easing as needed */
+}
+
+/* animate horizontal rule */
+@keyframes gradientAnimation {
+    0% {
+      border-image: linear-gradient(var(--dark-beige), var(--orange)) 1;
+    }
+    100% {
+      border-image: linear-gradient(var(--orange), var(--dark-beige)) 1;
+    }
+  }
+
+/* animate icon border */
+@keyframes borderAnimation {
+    0% {
+      border: var(--dark-beige) solid 1px;
+    }
+    100% {
+        border: var(--orange) solid 1px;
+    }
 }

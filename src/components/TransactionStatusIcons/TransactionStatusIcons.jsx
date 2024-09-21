@@ -6,19 +6,19 @@ import inBlockIcon from '../../icons/inBlock.png';
 const TransactionStatusIcons = () => {
     return(
         <section className={'transactionStatusIconContainer'}>
-                <div className={'iconContainer'}>
+                <div className={'iconContainer pastStatus'}>
                     <img src={pendingIcon}/>
                     <h5 className='transactionIconStatus'>Pending 2h 23m</h5>
                 </div>
-                <hr className={'iconLine'}/>
-                <div className={'iconContainer'}>
-                        <img src={inBlockIcon}/>
-                        <h5 className='transactionIconStatus'>Included in block #844712</h5>
+                <hr className={'iconLine lineBeforeCurrent'}/>
+                <div className={'iconContainer currentStatus'}>
+                    <img src={inBlockIcon}/>
+                    <h5 className='transactionIconStatus'>Included in block #844712</h5>
                 </div>
                 <hr className={'iconLine'}/>
-                <div className={'iconContainer'}>
-                        <img src={confirmedIcon}/>
-                        <h5 className='transactionIconStatus'>Confirmed</h5>
+                <div className={'iconContainer futureStatus'}>
+                    <img src={confirmedIcon}/>
+                    <h5 className='transactionIconStatus'>Confirmed</h5>
                 </div>
         </section>
     )

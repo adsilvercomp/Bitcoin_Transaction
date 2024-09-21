@@ -6,7 +6,7 @@ import inBlockIcon from '../../icons/inBlock.png';
 const TransactionStatusIcons = () => {
     return(
         <section className={'transactionStatusInnerContainer transactionStatusIconContainer'}>
-                <div className={'iconContainer pastStatus'}>
+                <div className={'iconContainer'}>
                     <img src={pendingIcon}/>
                     <h5 className='transactionIconStatus'>Pending 2h 23m</h5>
                 </div>

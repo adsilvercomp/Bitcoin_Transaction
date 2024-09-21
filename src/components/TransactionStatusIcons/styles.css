@@ -15,6 +15,7 @@
 .iconOuterContainer{
     display: inline-flex;
     flex-direction: column;
+    
 }
 
 .iconContainer{
@@ -26,6 +27,7 @@
     background-color: white;
     border-radius: 50%;
     position: relative;
+    border: var(--dark-beige) 1px solid;
 }
 
 .iconStatusName{
@@ -51,13 +53,9 @@
     animation: borderAnimation 2s ease-in-out; 
 }
 
-.pastStatus{
-    border: var(--dark-beige) 1px solid;
-}
 
 .futureStatus{
     opacity: 50%;
-    border: var(--dark-beige) 1px solid;
 }
 
 .lineBeforeCurrent {

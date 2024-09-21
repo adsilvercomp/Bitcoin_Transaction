@@ -15,8 +15,9 @@
     padding-left:var(--space-2);
     padding-right: var(--space-2);
     width: 722px;  
+    border-radius: var(--radius-1) 0px 0px var(--radius-1);
   }
-  
+
   .transactionSearchLabel{
     height: 19px;
     color: var(--dark-beige);
@@ -37,4 +38,5 @@
     background-color: var(--dark-beige);
     color: white;
     cursor: pointer;
+    border-radius: 0px var(--radius-1) var(--radius-1) 0px ;
   }

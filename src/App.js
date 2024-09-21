@@ -8,9 +8,11 @@ function App() {
   return (
     <section className="appContainer">
       <TransactionSearch/>
-      <div className='transactionOuterContainer'>
-        <TransactionStatus/>
-        <TransactionDetails/>
+      <div className='outerContainer'>
+        <div className="transactionOuterContainer">
+          <TransactionStatus/>
+          <TransactionDetails/>
+        </div>
       </div>
     </section>
   );

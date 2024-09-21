@@ -98,4 +98,5 @@
     border:none;
     height: 1px;
     background-color: var(--light-gray);
+    margin:0px;
 }

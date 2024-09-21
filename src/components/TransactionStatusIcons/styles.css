@@ -80,8 +80,10 @@
 @keyframes borderAnimation {
     0% {
       border: var(--dark-beige) solid 1px;
+      opacity: 50%;
     }
     100% {
         border: var(--orange) solid 1px;
+        opacity:100%;
     }
 }

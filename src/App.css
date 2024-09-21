@@ -57,3 +57,9 @@
     align-items: center;
   }
 }
+
+.detailText{
+  font-size: 13px;
+  color: var(--dark-beige);
+  margin: 0;
+}

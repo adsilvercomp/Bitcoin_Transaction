@@ -21,25 +21,25 @@ const TransactionStatus = () => {
             <section className={'transactionStatusInnerContainer transactionStatusInfoContainer'}>
                 <section className={'transactionStatusInfo'}>
                     <div className={'statusInfoSection'}>
-                        <h5 className="statusInfoText statusInfoHeader">Amount</h5>
-                        <p className="statusInfoText"><span className='textHighlight'>0.47067010</span> BTC</p>
-                        <p className="statusInfoText">$32,843.28</p>
+                        <h5 className="detailText statusInfoHeader">Amount</h5>
+                        <p className="detailText"><span className='textHighlight'>0.47067010</span> BTC</p>
+                        <p className="detailText">$32,843.28</p>
                     </div>
                     <div className={'statusInfoSection'}>
-                        <h5 className="statusInfoText statusInfoHeader">Fees</h5>
-                        <p className="statusInfoText"><span className='textHighlight'>741,609</span> SATS</p>
-                        <p className="statusInfoText">$517.49</p>
+                        <h5 className="detailText statusInfoHeader">Fees</h5>
+                        <p className="detailText"><span className='textHighlight'>741,609</span> SATS</p>
+                        <p className="detailText">$517.49</p>
                     </div>
                 </section>
                 <hr className={'divider'} />
                 <section className={'transactionStatusInfo'}>
                     <div className={'statusInfoSection'}>
-                        <h5 className="statusInfoText statusInfoHeader">From</h5>
-                        <p className="statusInfoText"><span className='textHighlight'>297 inputs</span></p>
+                        <h5 className="detailText statusInfoHeader">From</h5>
+                        <p className="detailText"><span className='textHighlight'>297 inputs</span></p>
                     </div>
                     <div className={'statusInfoSection'}>
-                        <h5 className="statusInfoText statusInfoHeader">To</h5>
-                        <p className="statusInfoText"><span className='textHighlight'>2 outputs</span></p>
+                        <h5 className="detailText statusInfoHeader">To</h5>
+                        <p className="detailText"><span className='textHighlight'>2 outputs</span></p>
                     </div>
                 </section>
             </section>

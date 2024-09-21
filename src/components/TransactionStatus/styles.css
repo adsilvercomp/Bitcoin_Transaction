@@ -93,12 +93,6 @@
     padding-bottom: 6px;
 }
 
-.statusInfoText{
-    font-size: 13px;
-    color: var(--dark-beige);
-    margin: 0;
-}
-
 .divider{
     width: 100%;
     border:none;

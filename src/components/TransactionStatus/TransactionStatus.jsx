@@ -11,7 +11,7 @@ const TransactionStatus = () => {
             </section>
             <section className={'transactionIdSection'}>
                 <p className={'transactionId'}>absw2123dxxxxsxdcoi23sdfsdfsdfsdfsdfsdfsdfsdf4234234</p>
-                <input className={'copyTransactionId'} type='image' src={copyIcon}/>
+                <input className={'copyTransactionId'} type='image' alt="copy transaction id" src={copyIcon}/>
             </section>
 
             <p className={'transactionStatusDescription'}>This transaction was first broadcasted on the Bitcoin network on <span className={'textHighlight'}>May 23, 2024 at 06:05 AM GMT+2.</span> The transaction currently has <span className={'textHighlight'}>17 confirmations</span> on the network. The current value of this transaction is now <span className={'textHighlight'}>$153.93.</span></p>

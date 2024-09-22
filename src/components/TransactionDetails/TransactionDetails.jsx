@@ -6,8 +6,8 @@ const TransactionDetails = () => {
     return(
         <section className={'transactionContainer'}>
             <section className={'buttonContainer'}>
-                <input className={'dashboardButton'} type='image' src={star}/>
-                <input className={'dashboardButton'} type='image' src={ellipsis}/>
+                <input className={'dashboardButton'} type='image' alt="star button" src={star}/>
+                <input className={'dashboardButton'} type='image' alt="ellipsis button" src={ellipsis}/>
             </section>
             
             {/* transaction table */}

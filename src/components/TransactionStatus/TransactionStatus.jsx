@@ -12,7 +12,7 @@ const TransactionStatus = () => {
         <section className={'transactionStatusContainer transactionContainer'}>
             <section className={'transactionStatusHeaderContainer'}>
                 <h2 className={'transactionStatusHeader'}>Bitcoin Transaction</h2>
-                <h3 className={`transactionStatusBox ${status.confirmed? 'transactionStatusConfirmedBox': 'transactionStatusPendingBox'}`}>{status.confirmed?'confirmed':'pending'}</h3>
+                <h3 className={`transactionStatusBox ${status.confirmed? 'transactionStatusConfirmedBox': 'transactionStatusPendingBox'}`}>{status.confirmed?'Confirmed':'Pending'}</h3>
             </section>
             <section className={'transactionIdSection'}>
                 <p className={'transactionId'}>{txid}</p>

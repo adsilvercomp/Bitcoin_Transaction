@@ -18,7 +18,7 @@
 }
 
 .appContainer{
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   min-width: 425px;
   height: 100vh;
@@ -59,8 +59,3 @@ section.altStatesContainer{
   margin: 0;
 }
 
-@media (max-width: 820px){
-  .transactionOuterContainer{
-    flex-direction: column;
-  }
-}

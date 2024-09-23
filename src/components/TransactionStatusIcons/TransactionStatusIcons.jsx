@@ -12,7 +12,7 @@ const TransactionStatusIcons = () => {
                 </div>
                 <hr className={'iconLine lineBeforeCurrent'}/>
                 <div className={'iconContainer currentStatus'}>
-                    <img alt="in block icoin" src={inBlockIcon}/>
+                    <img alt="in block icon" src={inBlockIcon}/>
                     <h5 className='transactionIconStatus'>Included in block #844712</h5>
                 </div>
                 <hr className={'iconLine'}/>

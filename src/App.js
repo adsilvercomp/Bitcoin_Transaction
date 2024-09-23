@@ -1,19 +1,28 @@
 
+import React from 'react';
 import './App.css';
-import TransactionDetails from './components/TransactionDetails/TransactionDetails';
 import TransactionSearch from './components/TransactionSearch/TransactionSearch';
-import TransactionStatus from './components/TransactionStatus/TransactionStatus';
+import TransactionInfoContainer from './components/TransactionInfoContainer/TransactionInfoContainer';
+import Loader from './components/Loader/Loader';
+import { useSelector } from 'react-redux';
 
-function App() {
+function App() { 
+  const {data, loading, error} = useSelector((state) => state);
+
   return (
     <section className="appContainer">
       <TransactionSearch/>
-      <div className='outerContainer'>
-        <div className="transactionOuterContainer">
-          <TransactionStatus/>
-          <TransactionDetails/>
-        </div>
-      </div>
+      {
+        loading?
+          <Loader/>
+        :error?
+          <h2>error</h2>
+        :data?
+          <TransactionInfoContainer/>
+        : 
+          <p>Search for your bitcoin transaction</p>
+      }
+      
     </section>
   );
 }

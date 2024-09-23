@@ -1,0 +1,12 @@
+.outerContainer{
+    display:flex;
+    justify-content: center;
+    margin-top: var(--space-4);
+  }
+  
+  .transactionOuterContainer{
+    display: flex;
+    flex-direction:row;
+    border-radius: var(--radius-1);
+    border: solid 1px var(--light-gray); 
+  }

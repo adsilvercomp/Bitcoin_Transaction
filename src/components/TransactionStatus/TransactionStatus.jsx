@@ -2,15 +2,20 @@ import React from 'react';
 import styles from './styles.css';
 import copyIcon from '../../icons/copy.png';
 import TransactionStatusIcons from '../TransactionStatusIcons/TransactionStatusIcons';
+import { useSelector } from 'react-redux';
+
 const TransactionStatus = () => {
+    const { data } = useSelector((state) => state);
+    const { txid, vin, vout, fee, status} = data;
+
     return(
         <section className={'transactionStatusContainer transactionContainer'}>
             <section className={'transactionStatusHeaderContainer'}>
                 <h2 className={'transactionStatusHeader'}>Bitcoin Transaction</h2>
-                <h3 className={`transactionStatusBox transactionStatusConfirmedBox`}>Confirmed</h3>
+                <h3 className={`transactionStatusBox ${status.confirmed? 'transactionStatusConfirmedBox': 'transactionStatusPendingBox'}`}>{status.confirmed?'confirmed':'pending'}</h3>
             </section>
             <section className={'transactionIdSection'}>
-                <p className={'transactionId'}>absw2123dxxxxsxdcoi23sdfsdfsdfsdfsdfsdfsdfsdf4234234</p>
+                <p className={'transactionId'}>{txid}</p>
                 <input className={'copyTransactionId'} type='image' alt="copy transaction id" src={copyIcon}/>
             </section>
 
@@ -27,7 +32,7 @@ const TransactionStatus = () => {
                     </div>
                     <div className={'statusInfoSection'}>
                         <h5 className="detailText statusInfoHeader">Fees</h5>
-                        <p className="detailText"><span className='textHighlight'>741,609</span> SATS</p>
+                        <p className="detailText"><span className='textHighlight'>{fee}</span> SATS</p>
                         <p className="detailText">$517.49</p>
                     </div>
                 </section>
@@ -35,11 +40,11 @@ const TransactionStatus = () => {
                 <section className={'transactionStatusInfo'}>
                     <div className={'statusInfoSection'}>
                         <h5 className="detailText statusInfoHeader">From</h5>
-                        <p className="detailText"><span className='textHighlight'>297 inputs</span></p>
+                        <p className="detailText"><span className='textHighlight'>{vin.length} inputs</span></p>
                     </div>
                     <div className={'statusInfoSection'}>
                         <h5 className="detailText statusInfoHeader">To</h5>
-                        <p className="detailText"><span className='textHighlight'>2 outputs</span></p>
+                        <p className="detailText"><span className='textHighlight'>{vout.length} outputs</span></p>
                     </div>
                 </section>
             </section>

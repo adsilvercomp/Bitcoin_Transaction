@@ -4,6 +4,8 @@ import './App.css';
 import TransactionSearch from './components/TransactionSearch/TransactionSearch';
 import TransactionInfoContainer from './components/TransactionInfoContainer/TransactionInfoContainer';
 import Loader from './components/Loader/Loader';
+import Error from './components/Error/Error';
+import DefaultScreen from './components/DefaultScreen/DefaultScreen';
 import { useSelector } from 'react-redux';
 
 function App() { 
@@ -16,11 +18,11 @@ function App() {
         loading?
           <Loader/>
         :error?
-          <h2>error</h2>
+          <Error/>
         :data?
           <TransactionInfoContainer/>
         : 
-          <p>Search for your bitcoin transaction</p>
+          <DefaultScreen/>
       }
       
     </section>

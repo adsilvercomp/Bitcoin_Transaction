@@ -1,13 +1,12 @@
 import React from 'react';
-import loader from '../../icons/loader.gif';
 import styles from './styles.css';
 
-const Loader = () => {
+const Error = () => {
     return (
         <section className={'altStatesContainer'}>
-            <img className={'loadingSpinner'} src={loader}/>
+            <h2 className={'errorText'}>error</h2>
         </section>
     )
 }
 
-export default Loader;
+export default Error;

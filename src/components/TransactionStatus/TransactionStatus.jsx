@@ -8,13 +8,16 @@ import convertSatToBTC from '../../utilityFunctions/convertSatToBTC';
 import { useSelector } from 'react-redux';
 
 const TransactionStatus = () => {
+    // get global state from redux
     const { data } = useSelector((state) => state);
+    // destructure global state
     const { transactionData, conversionData } = data || {};
     const { txid, vin, vout, fee, status } = transactionData || {};
     const { USD } = conversionData || {};
-    const [copied, setCopied] = useState(false);
-    const [toggleCopyMessage, setToggleCopyMessage] = useState(false);
+    // put ref for transaction id so that it can be copied to clipboard 
     const textRef = useRef(null);
+    const [toggleCopyMessage, setToggleCopyMessage] = useState(false);
+    
 
     // Error Handling for Missing or Invalid Data
     if (!transactionData || !conversionData) {
@@ -28,14 +31,15 @@ const TransactionStatus = () => {
     const handleCopy = () => {
         if (navigator.clipboard) {
           navigator.clipboard.writeText(textRef.current.textContent);
-          setCopied(true);
         } else {
           console.error('Clipboard API not supported');
         }
-        copyMessage();
+
+        // toggle copyMessage
+        triggerCopyMessage();
     };
 
-    function copyMessage() {
+    function triggerCopyMessage() {
         setToggleCopyMessage(true);
         setTimeout(() => {
             setToggleCopyMessage(false);

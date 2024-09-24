@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import styles from './styles.css';
 import copyIcon from '../../icons/copy.png';
 import TransactionStatusIcons from '../TransactionStatusIcons/TransactionStatusIcons';
@@ -12,6 +12,9 @@ const TransactionStatus = () => {
     const { transactionData, conversionData } = data || {};
     const { txid, vin, vout, fee, status } = transactionData || {};
     const { USD } = conversionData || {};
+    const [copied, setCopied] = useState(false);
+    const [toggleCopyMessage, setToggleCopyMessage] = useState(false);
+    const textRef = useRef(null);
 
     // Error Handling for Missing or Invalid Data
     if (!transactionData || !conversionData) {
@@ -21,9 +24,24 @@ const TransactionStatus = () => {
     const BTCAmount = vout.reduce((total, output) => total + output.value, 0) / 100000000;
     const BTCtoDollars = convertBtcToUSD(BTCAmount, USD);
     const FeestoDollars = convertBtcToUSD(convertSatToBTC(fee), USD);
+
+    const handleCopy = () => {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(textRef.current.textContent);
+          setCopied(true);
+        } else {
+          console.error('Clipboard API not supported');
+        }
+        copyMessage();
+    };
+
+    function copyMessage() {
+        setToggleCopyMessage(true);
+        setTimeout(() => {
+            setToggleCopyMessage(false);
+        }, 1000)
+    }
     
-    
-   
     return(
         <section className={'transactionStatusContainer transactionContainer'}>
             <section className={'transactionStatusHeaderContainer'}>
@@ -31,8 +49,16 @@ const TransactionStatus = () => {
                 <h3 className={`transactionStatusBox ${status.confirmed? 'transactionStatusConfirmedBox': 'transactionStatusPendingBox'}`}>{status.confirmed?'Confirmed':'Pending'}</h3>
             </section>
             <section className={'transactionIdSection'}>
-                <p className={'transactionId'}>{txid}</p>
-                <input className={'copyTransactionId'} type='image' alt="copy transaction id" src={copyIcon}/>
+                {
+                toggleCopyMessage?
+                    <p ref={textRef} className={'transactionId'}>Copied to Clipboard!</p>
+                :
+                    <>
+                        <p ref={textRef} className={'transactionId'}>{txid}</p>
+                        <input onClick={() => handleCopy()} className={'copyTransactionId'} type='image' alt="copy transaction id" src={copyIcon}/>
+                    </>
+                }   
+                
             </section>
 
             <p className={'transactionStatusDescription'}>This transaction was first broadcasted on the Bitcoin network on <span className={'textHighlight'}>May 23, 2024 at 06:05 AM GMT+2.</span> The transaction currently has <span className={'textHighlight'}>17 confirmations</span> on the network. The current value of this transaction is now <span className={'textHighlight'}>$153.93.</span></p>

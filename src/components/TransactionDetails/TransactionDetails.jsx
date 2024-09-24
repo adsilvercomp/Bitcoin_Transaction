@@ -12,6 +12,7 @@ const TransactionDetails = () => {
     const { transactionData, conversionData } = data || {};
     const { fee, size, weight, status} = transactionData || {};
     const { USD } = conversionData || {};
+    
     // Error Handling for Missing or Invalid Data
     if (!transactionData || !conversionData) {
         return <div>Data is missing or invalid.</div>;

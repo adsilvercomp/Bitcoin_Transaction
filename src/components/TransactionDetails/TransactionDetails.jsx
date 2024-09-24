@@ -2,7 +2,11 @@ import React from 'react';
 import styles from './styles.css';
 import star from '../../icons/star.png';
 import ellipsis from '../../icons/ellipsis.png';
+import {useSelector} from 'react-redux';
+
 const TransactionDetails = () => {
+    const { data } = useSelector((state) => state);
+    const {fee, size, weight} = data;
     return(
         <section className={'transactionContainer'}>
             <section className={'buttonContainer'}>
@@ -39,7 +43,7 @@ const TransactionDetails = () => {
                 <tbody>
                     <tr>
                         <td className={'detailText cellPadding'}>Fee</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>3,341</span> SATS - $517.49</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{fee}</span> SATS - $517.49</td>
                     </tr>
 
                     <tr>
@@ -69,7 +73,7 @@ const TransactionDetails = () => {
                 <tbody>
                     <tr>
                         <td className={'detailText cellPadding'}>Size</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>181</span> B</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{size}</span> B</td>
                     </tr>
 
                     <tr>
@@ -84,7 +88,7 @@ const TransactionDetails = () => {
 
                     <tr>
                         <td className={'detailText cellPadding'}>Weight</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>520</span> WU</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{weight}</span> WU</td>
                     </tr>
                 </tbody>
             </table>        

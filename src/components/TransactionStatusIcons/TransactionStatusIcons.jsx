@@ -21,7 +21,7 @@ const TransactionStatusIcons = () => {
                     <hr className={`iconLine ${!status.confirmed && status.block_height ? 'lineBeforeCurrent' : ''}`}/>
                     <div className={`iconContainer  ${status.confirmed?'':!status.confirmed && status.block_height? 'currentStatus' : 'futureStatus'}`}>
                         <img alt="in block icon" src={inBlockIcon}/>
-                        <h5 className='transactionIconStatus'>Included in block #844712</h5>
+                        <h5 className='transactionIconStatus'>Included in block #{status.block_height}</h5>
                     </div>
                     <hr className={`iconLine ${status.confirmed? 'lineBeforeCurrent' : ''}`}/>
                     <div className={`iconContainer  ${status.confirmed? 'currentStatus' : 'futureStatus'}`}>

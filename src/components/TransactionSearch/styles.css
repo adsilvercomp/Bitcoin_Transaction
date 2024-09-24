@@ -40,3 +40,8 @@
     cursor: pointer;
     border-radius: 0px var(--radius-1) var(--radius-1) 0px ;
   }
+
+  .disabledButton{
+    opacity:50%;
+    cursor: not-allowed;
+  }

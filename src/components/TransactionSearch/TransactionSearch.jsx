@@ -16,9 +16,9 @@ const TransactionSearch  = () => {
         <section className="transactionSearchContainer">
             <div className="transactionSearchInnerContainer">
                 <label className="transactionSearchLabel" for="Transaction ID">Transaction ID</label>
-                <input value={transactionId} onChange={(e) => setTransactionId(e.target.value)} className="transactionSearchInput" type="text" ></input>
+                <input placeholder={'Enter Transaction ID'} value={transactionId} onChange={(e) => setTransactionId(e.target.value)} className="transactionSearchInput" type="text" ></input>
             </div>
-            <button onClick={() => submitHandler()} className="searchButton">Search</button>
+            <button disabled={!transactionId.length} onClick={() => submitHandler()} className={`searchButton ${!transactionId.length? 'disabledButton' : '' }`}>Search</button>
         </section>
     )
 }

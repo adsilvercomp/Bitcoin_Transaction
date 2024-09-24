@@ -2,16 +2,28 @@ import React from 'react';
 import styles from './styles.css';
 import copyIcon from '../../icons/copy.png';
 import TransactionStatusIcons from '../TransactionStatusIcons/TransactionStatusIcons';
+import addCommas from '../../utilityFunctions/addCommas';
+import convertBtcToUSD from '../../utilityFunctions/convertBtcToUSD';
+import convertSatToBTC from '../../utilityFunctions/convertSatToBTC';
 import { useSelector } from 'react-redux';
 
 const TransactionStatus = () => {
     const { data } = useSelector((state) => state);
-    const { txid, vin, vout, fee, status} = data;
+    const { transactionData, conversionData } = data || {};
+    const { txid, vin, vout, fee, status } = transactionData || {};
+    const { USD } = conversionData || {};
 
-    function calculateBtcAmount(){
-        return vout.reduce((total, output) => total + output.value, 0) / 100000000;
+    // Error Handling for Missing or Invalid Data
+    if (!transactionData || !conversionData) {
+        return <div>Data is missing or invalid.</div>;
     }
 
+    const BTCAmount = vout.reduce((total, output) => total + output.value, 0) / 100000000;
+    const BTCtoDollars = convertBtcToUSD(BTCAmount, USD);
+    const FeestoDollars = convertBtcToUSD(convertSatToBTC(fee), USD);
+    
+    
+   
     return(
         <section className={'transactionStatusContainer transactionContainer'}>
             <section className={'transactionStatusHeaderContainer'}>
@@ -31,13 +43,13 @@ const TransactionStatus = () => {
                 <section className={'transactionStatusInfo'}>
                     <div className={'statusInfoSection'}>
                         <h5 className="detailText statusInfoHeader">Amount</h5>
-                        <p className="detailText"><span className='textHighlight'>{calculateBtcAmount()}</span> BTC</p>
-                        <p className="detailText">$32,843.28</p>
+                        <p className="detailText"><span className='textHighlight'>{BTCAmount}</span> BTC</p>
+                        <p className="detailText">${addCommas(BTCtoDollars)}</p>
                     </div>
                     <div className={'statusInfoSection'}>
                         <h5 className="detailText statusInfoHeader">Fees</h5>
-                        <p className="detailText"><span className='textHighlight'>{fee}</span> SATS</p>
-                        <p className="detailText">$517.49</p>
+                        <p className="detailText"><span className='textHighlight'>{addCommas(fee)}</span> SATS</p>
+                        <p className="detailText">${addCommas(FeestoDollars)}</p>
                     </div>
                 </section>
                 <hr className={'divider'} />

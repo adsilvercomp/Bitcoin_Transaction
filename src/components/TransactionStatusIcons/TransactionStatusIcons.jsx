@@ -7,10 +7,11 @@ import {useSelector} from 'react-redux';
 
 const TransactionStatusIcons = () => {
     const { data } = useSelector((state) => state);
-    const {status} = data || {};  
-
+    const {transactionData} = data;
+    const {status} = transactionData || {};
+  
     if (!status) {
-      return '';
+        return <div>Data is missing or invalid.</div>;
     }else{
         return(
             <section className={'transactionStatusInnerContainer transactionStatusIconContainer'}>

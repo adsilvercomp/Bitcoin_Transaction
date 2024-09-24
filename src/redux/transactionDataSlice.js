@@ -6,17 +6,34 @@ const initialState = {
   error: null,
 };
 
-export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData', async (transactionId) => {
-    // sample id
-    // 15e10745f15593a899cef391191bdd3d7c12412cc4696b7bcb669d0feadc8521
+const getTransactionData = async (transactionId) => {
   try {
     const response = await fetch(`https://mempool.space/api/tx/${transactionId}`);
     const transactionData = await response.json();
-    console.log(transactionData);
     return transactionData;
   } catch (error) {
     throw error;
   }
+}
+
+const getBtcConversionData = async () => {
+  try {
+    const response = await fetch(`https://mempool.space/api/v1/prices`);
+    const conversionData = await response.json();
+    return conversionData;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData', async (transactionId) => {
+  // Combine both fetches using Promise.all
+  const [transactionData, conversionData] = await Promise.all([
+    getTransactionData(transactionId),
+    getBtcConversionData(transactionId),
+  ]);
+
+  return { transactionData, conversionData }; 
 });
 
 const transactionDataSlice = createSlice({
@@ -42,5 +59,3 @@ const transactionDataSlice = createSlice({
 export const { actions } = transactionDataSlice.actions;
 export default transactionDataSlice.reducer;
 
-// Later, dispatch the thunk as needed in the app
-// dispatch(fetchTransactionData(transactionId))

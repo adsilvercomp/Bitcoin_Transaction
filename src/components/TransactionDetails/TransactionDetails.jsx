@@ -2,12 +2,22 @@ import React from 'react';
 import styles from './styles.css';
 import star from '../../icons/star.png';
 import ellipsis from '../../icons/ellipsis.png';
+import addCommas from '../../utilityFunctions/addCommas';
+import convertBtcToUSD from '../../utilityFunctions/convertBtcToUSD';
+import convertSatToBTC from '../../utilityFunctions/convertSatToBTC';
 import {useSelector} from 'react-redux';
 
 const TransactionDetails = () => {
     const { data } = useSelector((state) => state);
-    const {fee, size, weight, status, vin} = data;
+    const { transactionData, conversionData } = data || {};
+    const { fee, size, weight, status} = transactionData || {};
+    const { USD } = conversionData || {};
+    // Error Handling for Missing or Invalid Data
+    if (!transactionData || !conversionData) {
+        return <div>Data is missing or invalid.</div>;
+    }
 
+    const FeestoDollars = convertBtcToUSD(convertSatToBTC(fee), USD);
 
     function convertTimestamp(timestamp, timezoneOffset = 2) {
         // Create a new Date object from the timestamp (in milliseconds)
@@ -80,7 +90,7 @@ const TransactionDetails = () => {
                 <tbody>
                     <tr>
                         <td className={'detailText cellPadding'}>Fee</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>{fee}</span> SATS - $517.49</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{addCommas(fee)}</span> SATS - ${FeestoDollars}</td>
                     </tr>
 
                     <tr>
@@ -110,22 +120,22 @@ const TransactionDetails = () => {
                 <tbody>
                     <tr>
                         <td className={'detailText cellPadding'}>Size</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>{size}</span> B</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{addCommas(size)}</span> B</td>
                     </tr>
 
                     <tr>
                         <td className={'detailText cellPadding'}>Virtual size</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>{weight/4}</span> VB</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{addCommas(weight/4)}</span> VB</td>
                     </tr>
 
                     <tr>
                         <td className={'detailText cellPadding'}>Adjusted size</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>{weight/4}</span> VB</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{addCommas(weight/4)}</span> VB</td>
                     </tr>
 
                     <tr>
                         <td className={'detailText cellPadding'}>Weight</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>{weight}</span> WU</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{addCommas(weight)}</span> WU</td>
                     </tr>
                 </tbody>
             </table>        

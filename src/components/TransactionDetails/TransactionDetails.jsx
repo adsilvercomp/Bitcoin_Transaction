@@ -6,7 +6,44 @@ import {useSelector} from 'react-redux';
 
 const TransactionDetails = () => {
     const { data } = useSelector((state) => state);
-    const {fee, size, weight} = data;
+    const {fee, size, weight, status, vin} = data;
+
+
+    function convertTimestamp(timestamp, timezoneOffset = 2) {
+        // Create a new Date object from the timestamp (in milliseconds)
+        const date = new Date(timestamp * 1000);
+      
+        // Adjust the timezone offset in milliseconds
+        date.setTime(date.getTime() + (timezoneOffset * 60 * 60 * 1000));
+      
+        // Format the date and time as desired
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' };
+        const formattedDate = date.toLocaleString('en-US', options);
+      
+        // Extract the year, month, day, hour, and minute from the formatted string
+        const [year, month, day, hour, minute] = formattedDate.match(/\d+/g);
+     
+        // Return the desired format
+        return `${year}-${month}-${day} ${hour}:${minute}`;
+    }
+
+    function calculateAge(timestamp) {
+        const currentTime = new Date();
+        const transactionTime = new Date(timestamp * 1000); // Convert timestamp to milliseconds
+      
+        const age = currentTime - transactionTime;
+        const hours = Math.floor(age / (1000 * 60 * 60));
+        const minutes = Math.floor((age % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((age % (1000 * 60)) / 1000);
+      
+        return `${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    function roundToNearestTenth(number) {
+        return Math.round(number * 10) / 10;
+    }   
+
+
     return(
         <section className={'transactionContainer'}>
             <section className={'buttonContainer'}>
@@ -24,11 +61,11 @@ const TransactionDetails = () => {
                 <tbody>
                     <tr>
                         <td className={'detailText cellPadding'}>Timestamp</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>2024-05-11-24</span></td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{status.confirmed?convertTimestamp(status.block_time):'Pending'}</span></td>
                     </tr>
                     <tr>
                         <td className={'detailText cellPadding'}>Age</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>4h 9m 57s</span></td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{status.confirmed? calculateAge(status.block_time):'Pending'}</span></td>
                     </tr>
                 </tbody>
             </table>    
@@ -48,12 +85,12 @@ const TransactionDetails = () => {
 
                     <tr>
                         <td className={'detailText cellPadding'}>Fee rate</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>25.7</span> SATS/VB</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{roundToNearestTenth(fee/(weight/4))}</span> SATS/VB</td>
                     </tr>
 
                     <tr>
                         <td className={'detailText cellPadding'}>Effective fee rate</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>26.5</span> SATS/VB</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{roundToNearestTenth(fee/size)}</span> SATS/VB</td>
                     </tr>
 
                     <tr>
@@ -78,12 +115,12 @@ const TransactionDetails = () => {
 
                     <tr>
                         <td className={'detailText cellPadding'}>Virtual size</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>130</span> VB</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{weight/4}</span> VB</td>
                     </tr>
 
                     <tr>
                         <td className={'detailText cellPadding'}>Adjusted size</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>130</span> VB</td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{weight/4}</span> VB</td>
                     </tr>
 
                     <tr>

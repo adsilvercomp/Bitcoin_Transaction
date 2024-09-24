@@ -8,6 +8,10 @@ const TransactionStatus = () => {
     const { data } = useSelector((state) => state);
     const { txid, vin, vout, fee, status} = data;
 
+    function calculateBtcAmount(){
+        return vout.reduce((total, output) => total + output.value, 0) / 100000000;
+    }
+
     return(
         <section className={'transactionStatusContainer transactionContainer'}>
             <section className={'transactionStatusHeaderContainer'}>
@@ -27,7 +31,7 @@ const TransactionStatus = () => {
                 <section className={'transactionStatusInfo'}>
                     <div className={'statusInfoSection'}>
                         <h5 className="detailText statusInfoHeader">Amount</h5>
-                        <p className="detailText"><span className='textHighlight'>0.47067010</span> BTC</p>
+                        <p className="detailText"><span className='textHighlight'>{calculateBtcAmount()}</span> BTC</p>
                         <p className="detailText">$32,843.28</p>
                     </div>
                     <div className={'statusInfoSection'}>

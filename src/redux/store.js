@@ -2,5 +2,5 @@ import { configureStore } from '@reduxjs/toolkit';
 import transactionDataSlice from './transactionDataSlice';
 
 export const store = configureStore({
-  reducer: transactionDataSlice,
+  reducer: {transactionData: transactionDataSlice},
 });

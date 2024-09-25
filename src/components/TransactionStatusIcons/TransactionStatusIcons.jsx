@@ -6,7 +6,7 @@ import inBlockIcon from '../../icons/inBlock.png';
 import {useSelector} from 'react-redux';
 
 const TransactionStatusIcons = () => {
-    const { data } = useSelector((state) => state);
+    const { data } = useSelector((state) => state.transactionData);
     const {transactionData} = data;
     const {status} = transactionData || {};
   

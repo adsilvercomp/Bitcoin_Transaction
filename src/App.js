@@ -9,7 +9,7 @@ import DefaultScreen from './components/DefaultScreen/DefaultScreen';
 import { useSelector } from 'react-redux';
 
 function App() { 
-  const {data, loading, error} = useSelector((state) => state);
+  const {data, loading, error} = useSelector((state) => state.transactionData);
 
   return (
     <section className="appContainer">

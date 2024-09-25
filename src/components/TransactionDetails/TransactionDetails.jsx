@@ -8,7 +8,7 @@ import convertSatToBTC from '../../utilityFunctions/convertSatToBTC';
 import {useSelector} from 'react-redux';
 
 const TransactionDetails = () => {
-    const { data } = useSelector((state) => state);
+    const { data } = useSelector((state) => state.transactionData);
     const { transactionData, conversionData } = data || {};
     const { fee, size, weight, status} = transactionData || {};
     const { USD } = conversionData || {};

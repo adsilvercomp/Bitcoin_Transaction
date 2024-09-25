@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const TransactionStatus = () => {
     // get global state from redux
-    const { data } = useSelector((state) => state);
+    const { data } = useSelector((state) => state.transactionData);
     // destructure global state
     const { transactionData, conversionData } = data || {};
     const { txid, vin, vout, fee, status } = transactionData || {};

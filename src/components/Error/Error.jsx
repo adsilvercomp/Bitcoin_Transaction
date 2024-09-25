@@ -8,7 +8,7 @@ const Error = () => {
     console.log(error);
     return (
         <section className={'altStatesContainer'}>
-            <h2 className={'errorText'}>Error: {error} </h2>
+            <h3 className={'errorText'}>Error: {error} </h3>
         </section>
     )
 }

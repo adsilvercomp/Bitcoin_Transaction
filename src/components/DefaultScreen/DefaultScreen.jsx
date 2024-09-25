@@ -4,9 +4,9 @@ import styles from './styles.css';
 const DefaultScreen = () => {
     return (
         <section className={'altStatesContainer'}>
-            <h2 className={'DefaultScreenText'}>
+            <h3 className={'DefaultScreenText'}>
                 View the status of a Bitcoin transaction by entering the transaction Id above.
-            </h2>
+            </h3>
         </section>
     )
 }

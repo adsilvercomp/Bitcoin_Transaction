@@ -34,5 +34,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. I would have added css modules so that css could be scoped to individual components
 3. I would have set up a eslint with A11y, and a code formatter, like prettier, to help make the code more maintainable
 4. I would have set up husky.js to trigger the linter and formatter with git hooks.
-5. I would have considered adding typescript, though for a project this size it may do more harm than good.
+5. I would have considered adding typescript
 6. I would have considered refactoring the error handling to use react error boundaries.

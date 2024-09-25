@@ -3,13 +3,14 @@ import styles from './styles.css';
 import pendingIcon from '../../icons/pending.png'
 import confirmedIcon from '../../icons/confirmed.png';
 import inBlockIcon from '../../icons/inBlock.png';
+import calculateTimestampAge from '../../utilityFunctions/calculateTimeStampAge';
 import {useSelector} from 'react-redux';
 
 const TransactionStatusIcons = () => {
     const { data } = useSelector((state) => state.transactionData);
-    const {transactionData} = data;
+    const {transactionData, pendingTransactionTime} = data;
     const {status} = transactionData || {};
-  
+
     if (!status) {
         return(
             <section className={'transactionStatusInnerContainer transactionStatusIconContainer'}>
@@ -21,7 +22,7 @@ const TransactionStatusIcons = () => {
             <section className={'transactionStatusInnerContainer transactionStatusIconContainer'}>
                     <div className={`iconContainer ${!status.confirmed && !status.block_height? 'currentStatus':''}`}>
                         <img alt="pending icon" src={pendingIcon}/>
-                        <h5 className='transactionIconStatus'>Pending 2h 23m</h5>
+                        <h5 className='transactionIconStatus'>Pending {!status.confirmed? calculateTimestampAge(pendingTransactionTime[0], false):''}</h5>
                     </div>
                     <hr className={`iconLine ${!status.confirmed && status.block_height ? 'lineBeforeCurrent' : ''}`}/>
                     <div className={`iconContainer  ${status.confirmed?'':!status.confirmed && status.block_height? 'currentStatus' : 'futureStatus'}`}>

@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios'; 
 
 const initialState = {
   loading: false,
@@ -6,35 +7,38 @@ const initialState = {
   error: null,
 };
 
+const baseUrl = 'https://mempool.space/api';
+
 const getTransactionData = async (transactionId) => {
   try {
-    const response = await fetch(`https://mempool.space/api/tx/${transactionId}`);
-    const transactionData = await response.json();
-    return transactionData;
+    const response = await axios.get(`${baseUrl}/tx/${transactionId}`);
+    return response.data;
   } catch (error) {
     throw error;
   }
-}
+};
 
 const getBtcConversionData = async () => {
   try {
-    const response = await fetch(`https://mempool.space/api/v1/prices`);
-    const conversionData = await response.json();
-    return conversionData;
+    const response = await axios.get(`${baseUrl}/v1/prices`);
+    return response.data;
   } catch (error) {
     throw error;
   }
-}
+};
 
 const getPendingTransactionTime = async (transactionId) => {
   try {
-    const response = await fetch(`https://mempool.space/api/v1/transaction-times?txId[]=${transactionId}`);
-    const pendingTransactionTime = await response.json();
-    return pendingTransactionTime;
+    const response = await axios.get(`${baseUrl}/v1/transaction-times`, {
+      params: {
+        txId: [transactionId], // Pass transaction ID as a parameter within an array
+      },
+    });
+    return response.data;
   } catch (error) {
     throw error;
   }
-}
+};
 
 
 export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData', async (transactionId) => {
@@ -62,6 +66,8 @@ const transactionDataSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(fetchTransactionData.rejected, (state, action) => {
+        console.log('testing')
+        console.log(action.error.message);
         state.loading = false;
         state.error = action.error.message;
       });

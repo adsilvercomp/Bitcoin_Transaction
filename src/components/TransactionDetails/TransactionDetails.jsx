@@ -5,6 +5,7 @@ import ellipsis from '../../icons/ellipsis.png';
 import addCommas from '../../utilityFunctions/addCommas';
 import convertBtcToUSD from '../../utilityFunctions/convertBtcToUSD';
 import convertSatToBTC from '../../utilityFunctions/convertSatToBTC';
+import calculateTimestampAge from '../../utilityFunctions/calculateTimeStampAge';
 import {useSelector} from 'react-redux';
 
 const TransactionDetails = () => {
@@ -42,18 +43,6 @@ const TransactionDetails = () => {
         return `${year}-${month}-${day} ${hour}:${minute}`;
     }
 
-    function calculateAge(timestamp) {
-        const currentTime = new Date();
-        const transactionTime = new Date(timestamp * 1000); // Convert timestamp to milliseconds
-      
-        const age = currentTime - transactionTime;
-        const hours = Math.floor(age / (1000 * 60 * 60));
-        const minutes = Math.floor((age % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((age % (1000 * 60)) / 1000);
-      
-        return `${hours}h ${minutes}m ${seconds}s`;
-    }
-
     function roundToNearestTenth(number) {
         return Math.round(number * 10) / 10;
     }   
@@ -80,7 +69,7 @@ const TransactionDetails = () => {
                     </tr>
                     <tr>
                         <td className={'detailText cellPadding'}>Age</td>
-                        <td className={'detailText cellPadding'}><span className='textHighlight'>{status.confirmed? calculateAge(status.block_time):'Pending'}</span></td>
+                        <td className={'detailText cellPadding'}><span className='textHighlight'>{status.confirmed? calculateTimestampAge(status.block_time, true):'Pending'}</span></td>
                     </tr>
                 </tbody>
             </table>    

@@ -11,7 +11,11 @@ const TransactionStatusIcons = () => {
     const {status} = transactionData || {};
   
     if (!status) {
-        return <div>Data is missing or invalid.</div>;
+        return(
+            <section className={'transactionStatusInnerContainer transactionStatusIconContainer'}>
+                <div>Data is missing or invalid.</div>
+            </section>
+        ) 
     }else{
         return(
             <section className={'transactionStatusInnerContainer transactionStatusIconContainer'}>

@@ -18,7 +18,6 @@
 }
 
 .appContainer{
-  /* display: flex; */
   flex-direction: column;
   min-width: 425px;
   height: 100vh;

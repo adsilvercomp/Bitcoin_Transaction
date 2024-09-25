@@ -15,7 +15,11 @@ const TransactionDetails = () => {
     
     // Error Handling for Missing or Invalid Data
     if (!transactionData || !conversionData) {
-        return <div>Data is missing or invalid.</div>;
+        return (
+            <section className={'transactionContainer'}>
+                <p>Data is missing or invalid.</p>
+            </section>
+        )
     }
 
     const FeestoDollars = convertBtcToUSD(convertSatToBTC(fee), USD);

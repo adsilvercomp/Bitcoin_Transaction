@@ -11,24 +11,47 @@ const TransactionStatus = () => {
     // get global state from redux
     const { data } = useSelector((state) => state.transactionData);
     // destructure global state
-    const { transactionData, conversionData } = data || {};
+    const { transactionData, conversionData, pendingTransactionTime} = data || {};
     const { txid, vin, vout, fee, status } = transactionData || {};
     const { USD } = conversionData || {};
+
+    
     // put ref for transaction id so that it can be copied to clipboard 
     const textRef = useRef(null);
     const [toggleCopyMessage, setToggleCopyMessage] = useState(false);
     
-
     // Error Handling for Missing or Invalid Data
     if (!transactionData || !conversionData) {
-        return <div>Data is missing or invalid.</div>;
+        return(
+            <section className={'transactionStatusContainer transactionContainer'}>
+                <p>Data is missing or invalid.</p>
+            </section>
+        )
     }
 
     const BTCAmount = vout.reduce((total, output) => total + output.value, 0) / 100000000;
     const BTCtoDollars = convertBtcToUSD(BTCAmount, USD);
     const FeestoDollars = convertBtcToUSD(convertSatToBTC(fee), USD);
 
-    const handleCopy = () => {
+    function pendingTimeConversion(timestamp){
+        // Create a new Date object from the timestamp
+        const date = new Date(timestamp * 1000); // Multiply by 1000 to convert from seconds to milliseconds
+        // Format the date and time
+        const options = {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: false, // Use 24-hour format
+            timeZone: 'GMT'
+        };
+        const formattedDate = date.toLocaleDateString('en-US', options);
+
+        return formattedDate;
+    }
+
+    function handleCopy(){
         if (navigator.clipboard) {
           navigator.clipboard.writeText(textRef.current.textContent);
         } else {
@@ -64,8 +87,18 @@ const TransactionStatus = () => {
                 }   
                 
             </section>
-
-            <p className={'transactionStatusDescription'}>This transaction was first broadcasted on the Bitcoin network on <span className={'textHighlight'}>May 23, 2024 at 06:05 AM GMT+2.</span> The transaction currently has <span className={'textHighlight'}>17 confirmations</span> on the network. The current value of this transaction is now <span className={'textHighlight'}>$153.93.</span></p>
+            
+            {
+                pendingTransactionTime[0] !== 0?
+                <p className={'transactionStatusDescription'}>
+                    This transaction was first broadcasted on the Bitcoin network on <span className={'textHighlight'}>{pendingTimeConversion(pendingTransactionTime[0])}.</span> The current value of this transaction (amount + fees) is now <span className={'textHighlight'}>${addCommas(BTCtoDollars + FeestoDollars)}.</span>
+                </p>
+                :
+                <p className={'transactionStatusDescription'}>
+                    This transaction was confirmed on <span className={'textHighlight'}>{pendingTimeConversion(status.block_time)}.</span> The current value of this transaction (amount + fees) is now <span className={'textHighlight'}>${addCommas(BTCtoDollars + FeestoDollars)}</span>
+                </p>
+            }
+         
 
             <TransactionStatusIcons/>
 

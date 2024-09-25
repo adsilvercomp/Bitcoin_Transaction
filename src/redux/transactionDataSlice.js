@@ -26,14 +26,26 @@ const getBtcConversionData = async () => {
   }
 }
 
+const getPendingTransactionTime = async (transactionId) => {
+  try {
+    const response = await fetch(`https://mempool.space/api/v1/transaction-times?txId[]=${transactionId}`);
+    const pendingTransactionTime = await response.json();
+    return pendingTransactionTime;
+  } catch (error) {
+    throw error;
+  }
+}
+
+
 export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData', async (transactionId) => {
   // Combine both fetches using Promise.all
-  const [transactionData, conversionData] = await Promise.all([
+  const [transactionData, pendingTransactionTime, conversionData] = await Promise.all([
     getTransactionData(transactionId),
+    getPendingTransactionTime(transactionId),
     getBtcConversionData(),
   ]);
 
-  return { transactionData, conversionData }; 
+  return { transactionData, pendingTransactionTime, conversionData}; 
 });
 
 const transactionDataSlice = createSlice({

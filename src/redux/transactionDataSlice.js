@@ -30,7 +30,7 @@ export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData'
   // Combine both fetches using Promise.all
   const [transactionData, conversionData] = await Promise.all([
     getTransactionData(transactionId),
-    getBtcConversionData(transactionId),
+    getBtcConversionData(),
   ]);
 
   return { transactionData, conversionData }; 

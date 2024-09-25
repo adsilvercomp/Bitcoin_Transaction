@@ -25,7 +25,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
     3. `The star and ellipis icons` - It isn't clear in the design what the purpose of these buttons is supposed to be. I therefore included them as placeholders, but didn't give them any functionality. 
 
-    4. `The transaction timestamp and age` - It wasn't clear to me whether these should refer to the time the transaction was first made/broadcast or the time the transaction was confirmed. I ultimately set these values to be the time the transaction was confirmed and gave each a value of pending prior to the transaction confirmation. That said, I'm not sure if that was the intention and clarifying it would be helpful to both the developer and the user.
+    4. `The transaction timestamp and age` - It wasn't clear to me whether these should refer to the time the transaction was first made/broadcast or the time the transaction was confirmed. I ultimately set these values to be the time the transaction was confirmed and gave each a value of pending prior to the transaction's confirmation. That said, I'm not sure if that was the intention and clarifying it would be helpful to both the developer and the user. I also followed the design to include hours, minutes, and seconds, but for older transactions, you might want to consider days, months, and years.
 
 
 

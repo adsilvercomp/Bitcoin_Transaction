@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 function App() { 
   const {data, loading, error} = useSelector((state) => state.transactionData);
-  console.log(data);
+
   return (
     <section className="appContainer">
       <TransactionSearch/>

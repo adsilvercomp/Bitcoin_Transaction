@@ -9,44 +9,21 @@ const initialState = {
 
 const baseUrl = 'https://mempool.space/api';
 
-const getTransactionData = async (transactionId) => {
+const getData = async (url) => {
   try {
-    const response = await axios.get(`${baseUrl}/tx/${transactionId}`);
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     throw error;
   }
-};
-
-const getBtcConversionData = async () => {
-  try {
-    const response = await axios.get(`${baseUrl}/v1/prices`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
-const getPendingTransactionTime = async (transactionId) => {
-  try {
-    const response = await axios.get(`${baseUrl}/v1/transaction-times`, {
-      params: {
-        txId: [transactionId], // Pass transaction ID as a parameter within an array
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
+}
 
 export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData', async (transactionId) => {
   // Combine both fetches using Promise.all
   const [transactionData, pendingTransactionTime, conversionData] = await Promise.all([
-    getTransactionData(transactionId),
-    getPendingTransactionTime(transactionId),
-    getBtcConversionData(),
+    getData(`${baseUrl}/tx/${transactionId}`),
+    getData(`${baseUrl}/v1/transaction-times?txId[]=${transactionId}`),
+    getData(`${baseUrl}/v1/prices`)
   ]);
 
   return { transactionData, pendingTransactionTime, conversionData}; 
@@ -66,8 +43,6 @@ const transactionDataSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(fetchTransactionData.rejected, (state, action) => {
-        console.log('testing')
-        console.log(action.error.message);
         state.loading = false;
         state.error = action.error.message;
       });

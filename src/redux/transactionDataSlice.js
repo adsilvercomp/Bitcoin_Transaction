@@ -19,7 +19,7 @@ const getData = async (url) => {
 }
 
 export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData', async (transactionId) => {
-  // Combine both fetches using Promise.all
+  // Combine fetches using Promise.all
   const [transactionData, pendingTransactionTime, conversionData] = await Promise.all([
     getData(`${baseUrl}/tx/${transactionId}`),
     getData(`${baseUrl}/v1/transaction-times?txId[]=${transactionId}`),

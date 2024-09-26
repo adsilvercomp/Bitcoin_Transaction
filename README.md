@@ -15,9 +15,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Design feedback
 - The design has a nice aesthetic.
 
-- I noticed in the design, that there was no button for submitting a transaction id after adding it to the input in the header. The design could be made to work as is by triggering the search when the user types or clicks on the input, but that has server cost implications, especially if many people are using this feature. User's would be submitting multiple requests, when only meaning to submit one. It could also potentially lead to a poor user experience if a user gets multiple errors while entering the transaction id.
+- I noticed, in the design, that there was no button for submitting a transaction id after adding it to the input in the header. The design could be made to work as is by triggering the search when the user types or clicks on the input, but that has server cost implications, especially if many people are using this feature. User's would be submitting multiple requests, when only meaning to submit one. It could also lead to a poor user experience if a user gets multiple errors while entering the transaction id. I Therefore took the liberty of adding a submit button.
 
-- I was also confused about certain data points in the figma design, so perhaps the design can be updated to make these things more clear:
+- I was confused about certain data points in the figma design, so perhaps the design can be updated to make these things more clear:
 
     1. `The id next to the copy to clipboard button under the header` - I noticed in the design file that this id was different than the id in the transaction id search box, which made me question whether it was meant to be the `transaction id` or a different id, like the `block hash`.
 
@@ -30,9 +30,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## What I would have done with more time
-1. I would have added unit/integration tests
-2. I would have added css modules so that css could be scoped to individual components
-3. I would have set up eslint with A11y, and a code formatter, like prettier, to help make the code more maintainable
-4. I would have set up husky.js to trigger the linter and formatter with git hooks.
-5. I would have considered adding typescript
-6. I would have considered refactoring the error handling to use react error boundaries.
+1. I would have figured out which request to make to get the foundry
+2. I would have figured out which endpoints I needed to hit to get the number of confirmations (Based on my research, it's calculated by subtracting block height at the time the transaction was confirmed by the current block height) 
+3. I would have added unit/integration tests
+4. I would have added css modules so that css could be scoped to individual components
+5. I would have set up eslint with A11y, and a code formatter, like prettier, to help make the code more maintainable
+6. I would have set up husky.js to trigger the linter and formatter with git hooks.
+7. I would have considered adding typescript
+8. I would have considered refactoring the error handling to use react error boundaries.

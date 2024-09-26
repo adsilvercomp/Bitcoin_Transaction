@@ -30,11 +30,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## What I would have done with more time
-1. I would have figured out which request to make to get the foundry
-2. I would have figured out which endpoints I needed to hit to get the number of confirmations (Based on my research, it's calculated by subtracting block height at the time the transaction was confirmed by the current block height) 
-3. I would have added unit/integration tests
-4. I would have added css modules so that css could be scoped to individual components
-5. I would have set up eslint with A11y, and a code formatter, like prettier, to help make the code more maintainable
+1. I would have figured out which request to make to get the foundry.
+2. I would have figured out which endpoints I needed to hit to get the number of confirmations (Based on my research, it's calculated by subtracting block height at the time the transaction was confirmed by the current block height). 
+3. I would have added unit/integration tests.
+4. I would have added css modules so that css could be scoped to individual components.
+5. I would have set up eslint with A11y, and a code formatter, like prettier, to help make the code more maintainable.
 6. I would have set up husky.js to trigger the linter and formatter with git hooks.
 7. I would have considered adding typescript
 8. I would have considered refactoring the error handling to use react error boundaries.

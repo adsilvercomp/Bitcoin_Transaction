@@ -1,4 +1,4 @@
-function addCommas(val){
+function addCommas(val:number):string{
     return val.toLocaleString('en-US')
 }
 

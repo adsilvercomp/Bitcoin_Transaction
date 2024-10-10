@@ -8,7 +8,9 @@ import Error from './components/Error/Error';
 import DefaultScreen from './components/DefaultScreen/DefaultScreen';
 import { useSelector } from 'react-redux';
 
+
 function App() { 
+  // @ts-ignore
   const {data, loading, error} = useSelector((state) => state.transactionData);
 
   return (

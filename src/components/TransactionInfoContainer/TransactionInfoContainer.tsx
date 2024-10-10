@@ -2,12 +2,12 @@
 import React from 'react';
 import TransactionDetails from '../TransactionDetails/TransactionDetails';
 import TransactionStatus from '../TransactionStatus/TransactionStatus';
-import styles from './styles.css';
+import styles from './styles.module.css';
 
 const TransactionInfoContainer = () => {
     return (
-        <div className={'outerContainer'}>
-            <div className={'transactionOuterContainer'}>
+        <div className={`${styles.outerContainer}`}>
+            <div className={`${styles.transactionOuterContainer}`}>
                 <TransactionStatus/>
                 <TransactionDetails/>
             </div>

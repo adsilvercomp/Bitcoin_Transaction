@@ -1,24 +1,71 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios'; 
 
-const initialState = {
+
+interface TransactionData {
+  txid: string;
+  weight: string;
+  size: number;
+  fee: number;
+  status: TransactionStatus | null;
+  vin: Vin[] | null;
+  vout: Vout[] | null;
+}
+
+interface TransactionStatus {
+  confirmed: boolean;
+  block_height: number;
+  block_hash: string;
+  block_time: number;
+}
+
+
+interface ConversionData {
+  "time": number;
+  "USD": number;
+}
+
+interface Vin {
+  txid: number;
+  vout: number;
+  prevout: {value:number};
+}
+
+interface Vout {
+  value: number;
+}
+
+interface TransactionDataState {
+  loading: boolean;
+  data: { transactionData: TransactionData; pendingTransactionTime: number[]; conversionData: ConversionData } | null;
+  error: string | null;
+}
+
+const initialState: TransactionDataState = {
   loading: false,
-  data: null,
+  data: null ,
   error: null,
 };
 
+interface DataReturnType {
+  transactionData: TransactionData; 
+  pendingTransactionTime: number[]; 
+  conversionData: ConversionData 
+}
+
 const baseUrl = 'https://mempool.space/api';
 
-const getData = async (url) => {
+const getData = async (url:string) : Promise<any> => {
   try {
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    throw error;
+    console.error('Error fetching data:', error);
+    throw new Error('Failed to fetch data');
   }
 }
 
-export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData', async (transactionId) => {
+export const fetchTransactionData = createAsyncThunk<DataReturnType, string>('data/fetchTransactionData', async (transactionId) => {
   // Combine fetches using Promise.all
   const [transactionData, pendingTransactionTime, conversionData] = await Promise.all([
     getData(`${baseUrl}/tx/${transactionId}`),
@@ -32,6 +79,7 @@ export const fetchTransactionData = createAsyncThunk('data/fetchTransactionData'
 const transactionDataSlice = createSlice({
   name: 'transactionData',
   initialState,
+  reducers:{},
   extraReducers: (builder) => {
     builder
       .addCase(fetchTransactionData.pending, (state) => {
@@ -49,6 +97,6 @@ const transactionDataSlice = createSlice({
   },
 });
 
-export const { actions } = transactionDataSlice.actions;
+export const { actions } = transactionDataSlice;
 export default transactionDataSlice.reducer;
 

@@ -1,102 +1,102 @@
-.transactionStatusContainer{
-    background-color: var(--beige);
+.transactionStatusContainer {
+  background-color: var(--beige);
 }
 
-.transactionStatusHeaderContainer{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.transactionStatusHeaderContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.transactionStatusHeader{
-    font-size: 32px;
-    font-weight: normal;
-    color: var(--black);
-    margin: 0px;
+.transactionStatusHeader {
+  font-size: 32px;
+  font-weight: normal;
+  color: var(--black);
+  margin: 0px;
 }
 
-.transactionStatusBox{
-    width: 69px;
-    height: 21px;
-    font-size: 11px;
-    font-weight: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: var(--space-1);
-    border-radius: var(--radius-1);
+.transactionStatusBox {
+  width: 69px;
+  height: 21px;
+  font-size: 11px;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: var(--space-1);
+  border-radius: var(--radius-1);
 }
 
-.transactionStatusConfirmedBox{
-    background-color: rgb(232, 255, 229);
-    color: rgb(3, 137, 3);
-    border: rgb(171, 245, 171) 1px solid;
+.transactionStatusConfirmedBox {
+  background-color: rgb(232, 255, 229);
+  color: rgb(3, 137, 3);
+  border: rgb(171, 245, 171) 1px solid;
 }
 
-.transactionStatusPendingBox{
-    background-color: rgb(69, 57, 57);
-    color: var(--white);
-    border: var(--black) 1px solid;
+.transactionStatusPendingBox {
+  background-color: rgb(69, 57, 57);
+  color: var(--white);
+  border: var(--black) 1px solid;
 }
 
-.transactionIdSection{
-    display: flex;
+.transactionIdSection {
+  display: flex;
 }
 
-.transactionId{
-    color: var(--dark-beige);
-    font-size: 13px;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 75ch;
+.transactionId {
+  color: var(--dark-beige);
+  font-size: 13px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75ch;
 }
 
-.copyTransactionId{
-    height:12px;
-    width: auto;
-    margin-left: 5px;
+.copyTransactionId {
+  height: 12px;
+  width: auto;
+  margin-left: 5px;
 }
 
-.transactionStatusDescription{
-    margin-top: var(--space-3);
-    margin-bottom: var(--space-3);
-    font-size: 15px;
-    color: var(--dark-beige);
+.transactionStatusDescription {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
+  font-size: 15px;
+  color: var(--dark-beige);
 }
 
-.textHighlight{
-    color: var(--black);
+.textHighlight {
+  color: var(--black);
 }
 
-.transactionStatusInfoContainer{
-    margin-top: var(--space-3);
-    flex-direction: column;
-    padding: 0;
+.transactionStatusInfoContainer {
+  margin-top: var(--space-3);
+  flex-direction: column;
+  padding: 0;
 }
 
-.transactionStatusInfo{
-    display: flex;
-    flex-direction:row;
-    margin: var(--space-1);
+.transactionStatusInfo {
+  display: flex;
+  flex-direction: row;
+  margin: var(--space-1);
 }
 
-.statusInfoSection{
-    display: flex;
-    flex-direction:column;
-    flex:1;
+.statusInfoSection {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.statusInfoHeader{
-    font-weight:normal;
-    padding-bottom: 6px;
+.statusInfoHeader {
+  font-weight: normal;
+  padding-bottom: 6px;
 }
 
-.divider{
-    width: 100%;
-    border:none;
-    height: 1px;
-    background-color: var(--light-gray);
-    margin:0px;
+.divider {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background-color: var(--light-gray);
+  margin: 0px;
 }

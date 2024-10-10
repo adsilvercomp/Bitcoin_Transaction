@@ -1,47 +1,48 @@
-.transactionSearchContainer{
-    display:flex;
-    background-color: var(--beige);
-    height: 88px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .transactionSearchInnerContainer{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--white);
-    height: 64px;
-    justify-content: center;
-    padding-left:var(--space-2);
-    padding-right: var(--space-2);
-    width: 722px;  
-    border-radius: var(--radius-1) 0px 0px var(--radius-1);
-  }
+.transactionSearchContainer {
+  display: flex;
+  background-color: var(--beige);
+  height: 88px;
+  justify-content: center;
+  align-items: center;
+}
 
-  .transactionSearchLabel{
-    height: 19px;
-    color: var(--dark-beige);
-  }
-  
-  .transactionSearchInput{
-    border: none;
-    height: 19px;
-  }
-  
-  .transactionSearchInput:focus, input:focus{
-    outline: none;
-  }
+.transactionSearchInnerContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  height: 64px;
+  justify-content: center;
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+  width: 722px;
+  border-radius: var(--radius-1) 0px 0px var(--radius-1);
+}
 
-  .searchButton{
-    border:none;
-    height:64px;
-    background-color: var(--dark-beige);
-    color: white;
-    cursor: pointer;
-    border-radius: 0px var(--radius-1) var(--radius-1) 0px ;
-  }
+.transactionSearchLabel {
+  height: 19px;
+  color: var(--dark-beige);
+}
 
-  .disabledButton{
-    opacity:50%;
-    cursor: not-allowed;
-  }
+.transactionSearchInput {
+  border: none;
+  height: 19px;
+}
+
+.transactionSearchInput:focus,
+input:focus {
+  outline: none;
+}
+
+.searchButton {
+  border: none;
+  height: 64px;
+  background-color: var(--dark-beige);
+  color: white;
+  cursor: pointer;
+  border-radius: 0px var(--radius-1) var(--radius-1) 0px;
+}
+
+.disabledButton {
+  opacity: 50%;
+  cursor: not-allowed;
+}

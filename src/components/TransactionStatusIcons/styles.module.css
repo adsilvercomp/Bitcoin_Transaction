@@ -1,87 +1,84 @@
-.transactionStatusIconContainer{
-    justify-content: space-around;
+.transactionStatusIconContainer {
+  justify-content: space-around;
 }
 
-.transactionStatusIconTextContainer{
-    display: flex;
+.transactionStatusIconTextContainer {
+  display: flex;
 }
 
-.iconLine{
-    transform: rotate(90deg);
-    padding:0px;
-    margin: 0px;
+.iconLine {
+  transform: rotate(90deg);
+  padding: 0px;
+  margin: 0px;
 }
 
-.iconOuterContainer{
-    display: inline-flex;
-    flex-direction: column;
-
+.iconOuterContainer {
+  display: inline-flex;
+  flex-direction: column;
 }
 
-.iconContainer{
-    height:48px;
-    width: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 50%;
-    position: relative;
-    border: var(--dark-beige) 1px solid;
+.iconContainer {
+  height: 48px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+  border: var(--dark-beige) 1px solid;
 }
 
-.iconStatusName{
-    margin: 0px;
-    font-size: 9px;
-    font-weight: normal;
-    color: var(--dark-beige);
+.iconStatusName {
+  margin: 0px;
+  font-size: 9px;
+  font-weight: normal;
+  color: var(--dark-beige);
 }
 
-.transactionIconStatus{
-    position:absolute;
-    color: var(--dark-beige);
-    text-align: center;
-    font-weight: normal;
-    margin: 0;
-    font-size: 9px;
-    width: 60px;
-    top: 55px;
+.transactionIconStatus {
+  position: absolute;
+  color: var(--dark-beige);
+  text-align: center;
+  font-weight: normal;
+  margin: 0;
+  font-size: 9px;
+  width: 60px;
+  top: 55px;
 }
 
-.currentStatus{
-    border: var(--orange) solid 1px;
-    animation: borderAnimation 2s ease-in-out; 
+.currentStatus {
+  border: var(--orange) solid 1px;
+  animation: borderAnimation 2s ease-in-out;
 }
 
-
-.futureStatus{
-    opacity: 50%;
+.futureStatus {
+  opacity: 50%;
 }
 
 .lineBeforeCurrent {
-    border-image: linear-gradient(var(--orange), var(--dark-beige)) 1;
-    animation: gradientAnimation 1s ease-in-out; /* Adjust duration and easing as needed */
+  border-image: linear-gradient(var(--orange), var(--dark-beige)) 1;
+  animation: gradientAnimation 1s ease-in-out; /* Adjust duration and easing as needed */
 }
-
 
 /* animate horizontal rule */
 @keyframes gradientAnimation {
-    0% {
-      border-image: linear-gradient(var(--dark-beige), var(--orange)) 1;
-    }
-    100% {
-      border-image: linear-gradient(var(--orange), var(--dark-beige)) 1;
-    }
+  0% {
+    border-image: linear-gradient(var(--dark-beige), var(--orange)) 1;
   }
+  100% {
+    border-image: linear-gradient(var(--orange), var(--dark-beige)) 1;
+  }
+}
 
 /* animate icon border */
 @keyframes borderAnimation {
-    0% {
-      border: var(--dark-beige) solid 1px;
-      opacity: 50%;
-    }
-    100% {
-        border: var(--orange) solid 1px;
-        opacity:100%;
-    }
+  0% {
+    border: var(--dark-beige) solid 1px;
+    opacity: 50%;
+  }
+  100% {
+    border: var(--orange) solid 1px;
+    opacity: 100%;
+  }
 }

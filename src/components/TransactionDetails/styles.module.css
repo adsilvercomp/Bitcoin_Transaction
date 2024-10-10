@@ -1,25 +1,25 @@
-.detailsTable{
-    text-align: left;
-    padding-bottom: var(--space-3);
+.detailsTable {
+  text-align: left;
+  padding-bottom: var(--space-3);
 }
 
-.tableHeader{
-    font-size: 15px;
-    font-weight: 550;
+.tableHeader {
+  font-size: 15px;
+  font-weight: 550;
 }
 
-.cellPadding{
-    padding-top: 6px;
-    padding-bottom: 6px;
-    width: 50%;
+.cellPadding {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  width: 50%;
 }
 
-.dashboardButton{
-    height:40px;
-    width:40px;
+.dashboardButton {
+  height: 40px;
+  width: 40px;
 }
 
-.buttonContainer{
-    display: flex;
-    justify-content: flex-end;
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
 }

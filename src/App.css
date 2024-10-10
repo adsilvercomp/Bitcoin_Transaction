@@ -1,10 +1,9 @@
-
-:root{
+:root {
   --beige: #efe9e3;
   --dark-beige: #948677;
-  --orange: #FC6432;
+  --orange: #fc6432;
   --black: #000000;
-  --white: #FFFFFFFF;
+  --white: #ffffffff;
   --light-gray: rgb(208, 203, 203);
   --space-1: 12px;
   --space-2: 16px;
@@ -17,44 +16,41 @@
   font-family: sans-serif;
 }
 
-.appContainer{
+.appContainer {
   flex-direction: column;
   min-width: 425px;
   height: 100vh;
 }
 
-.transactionContainer{
-  width:356px;
+.transactionContainer {
+  width: 356px;
   min-width: 356px;
-  height:520px;
+  height: 520px;
   min-height: 520px;
   padding: var(--space-3);
   display: flex;
   flex-direction: column;
- 
 }
 
-.transactionStatusInnerContainer{
+.transactionStatusInnerContainer {
   border: solid 1px var(--light-gray);
   display: flex;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: var(--space-3);
-  padding-bottom: var(--space-5);  
+  padding-bottom: var(--space-5);
   border-radius: var(--radius-1);
 }
 
-section.altStatesContainer{
+section.altStatesContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100% - 88px);
 }
 
-
-.detailText{
+.detailText {
   font-size: 13px;
   color: var(--dark-beige);
   margin: 0;
 }
-
